@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Expense Tracker</h1>
+        <p>Track spending, stay on budget.</p>
+      </header>
+
+      <section class="card grid">
+        <form id="expense-form" class="stack">
+          <h2>Add Expense</h2>
+          <label>Description
+            <input id="description" required maxlength="60" placeholder="Groceries" />
+          </label>
+          <label>Amount ($)
+            <input id="amount" type="number" min="0.01" step="0.01" required />
+          </label>
+          <label>Category
+            <select id="category" required>
+              <option value="Food">Food</option>
+              <option value="Transport">Transport</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Bills">Bills</option>
+              <option value="Health">Health</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+          <label>Date
+            <input id="date" type="date" required />
+          </label>
+          <button type="submit">Add Expense</button>
+        </form>
+
+        <section class="stack">
+          <h2>Budget</h2>
+          <label>Monthly Budget ($)
+            <input id="budget-input" type="number" min="0" step="0.01" placeholder="1500" />
+          </label>
+          <button id="save-budget" type="button">Save Budget</button>
+          <div id="budget-status" class="pill">No budget set</div>
+        </section>
+      </section>
+
+      <section class="card stack">
+        <h2>Summary</h2>
+        <div class="summary">
+          <div><span>Total Spent</span><strong id="total-spent">$0.00</strong></div>
+          <div><span>This Month</span><strong id="month-spent">$0.00</strong></div>
+          <div><span>Remaining</span><strong id="remaining">$0.00</strong></div>
+        </div>
+      </section>
+
+      <section class="card stack">
+        <h2>Expenses</h2>
+        <div class="row">
+          <label>Filter by category
+            <select id="filter-category">
+              <option value="All">All</option>
+              <option value="Food">Food</option>
+              <option value="Transport">Transport</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Bills">Bills</option>
+              <option value="Health">Health</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+          <button id="clear-all" class="danger" type="button">Clear All</button>
+        </div>
+        <ul id="expense-list" class="list"></ul>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
